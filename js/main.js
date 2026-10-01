@@ -1,5 +1,6 @@
 // ========== Состояние ==========
-const cart = [];
+const CART_STORAGE_KEY = 'zavarnoy-cart';
+const cart = loadCart();
 
 
 // ========== Элементы страницы ==========
@@ -13,6 +14,19 @@ const checkoutButton = document.querySelector('.cart__checkout');
 
 
 // ========== Вспомогательные функции ==========
+
+function loadCart() {
+  try {
+    const saved = localStorage.getItem(CART_STORAGE_KEY);
+    return saved ? JSON.parse(saved) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveCart() {
+  localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+}
 
 // 1290 → "1 290 ₽"
 function formatPrice(value) {
@@ -91,6 +105,7 @@ function renderCart() {
   cartEmpty.hidden = !isEmpty;
   cartTotal.hidden = isEmpty;
   checkoutButton.disabled = isEmpty;
+  saveCart();
 }
 
 
