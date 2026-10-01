@@ -18,6 +18,10 @@
 
 /* ========== Сброс и база ========== */
 
+[hidden] {
+  display: none !important;
+}
+
 *,
 *::before,
 *::after {
@@ -541,6 +545,21 @@ input {
   margin-top: 8px;
 }
 
+.order-success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.order-success__title {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.order-success__text {
+  color: var(--ink-soft);
+}
 
 /* ========== Подвал ========== */
 

@@ -22,6 +22,12 @@ const cartTotalSum = document.querySelector('.cart__total-sum');
 const cartCount = document.querySelector('.header__cart-count');
 const checkoutButton = document.querySelector('.cart__checkout');
 
+const orderModal = document.querySelector('#order-modal');
+const orderForm = document.querySelector('#order-form');
+const orderCancelButton = orderModal.querySelector('.order-form__close');
+const orderSuccess = orderModal.querySelector('.order-success');
+const orderSuccessButton = orderModal.querySelector('.order-success__close');
+
 
 // ========== Вспомогательные функции ==========
 
@@ -87,6 +93,10 @@ function removeFromCart(id) {
   renderCart();
 }
 
+function clearCart() {
+  cart.length = 0;
+  renderCart();
+}
 
 // ========== Отрисовка ==========
 
@@ -147,6 +157,12 @@ function closeOnBackdropClick(dialog) {
   });
 }
 
+function openOrderModal() {
+  orderForm.hidden = false;
+  orderSuccess.hidden = true;
+  orderModal.showModal();
+}
+
 // ========== Обработчики событий ==========
 
 cartList.addEventListener('click', (event) => {
@@ -183,6 +199,21 @@ productAddButton.addEventListener('click', () => {
 
 productCloseButton.addEventListener('click', () => productModal.close());
 closeOnBackdropClick(productModal);
+
+checkoutButton.addEventListener('click', openOrderModal);
+orderCancelButton.addEventListener('click', () => orderModal.close());
+
+orderForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  orderForm.reset();
+  orderForm.hidden = true;
+  orderSuccess.hidden = false;
+  clearCart();
+});
+
+orderSuccessButton.addEventListener('click', () => orderModal.close());
+closeOnBackdropClick(orderModal);
 
 // ========== Старт ==========
 renderCart();
