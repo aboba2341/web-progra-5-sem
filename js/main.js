@@ -1,6 +1,4 @@
 // ========== Состояние ==========
-// Корзина — это массив товаров. Всё, что видно на странице про корзину,
-// рисуется из этого массива функцией renderCart().
 const cart = [];
 
 
@@ -46,6 +44,25 @@ function addToCart(product) {
   renderCart();
 }
 
+function changeQuantity(id, delta) {
+  const item = cart.find((cartItem) => cartItem.id === id);
+  if (!item) return;
+
+  item.quantity += delta;
+
+  if (item.quantity <= 0) {
+    removeFromCart(id);
+  } else {
+    renderCart();
+  }
+}
+
+function removeFromCart(id) {
+  const index = cart.findIndex((cartItem) => cartItem.id === id);
+  if (index !== -1) cart.splice(index, 1);
+  renderCart();
+}
+
 
 // ========== Отрисовка ==========
 
@@ -78,6 +95,21 @@ function renderCart() {
 
 
 // ========== Обработчики событий ==========
+
+cartList.addEventListener('click', (event) => {
+  const cartItem = event.target.closest('.cart-item');
+  if (!cartItem) return;
+
+  const id = cartItem.dataset.id;
+
+  if (event.target.closest('.cart-item__increase')) {
+    changeQuantity(id, 1);
+  } else if (event.target.closest('.cart-item__decrease')) {
+    changeQuantity(id, -1);
+  } else if (event.target.closest('.cart-item__remove')) {
+    removeFromCart(id);
+  }
+});
 
 // Один обработчик на весь каталог вместо отдельного на каждую кнопку
 catalogList.addEventListener('click', (event) => {
