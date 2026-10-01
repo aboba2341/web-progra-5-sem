@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Заварной — кофе и эклеры</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
@@ -45,62 +50,128 @@
       <ul class="catalog__list">
 
         <li>
-          <article class="card" data-id="malina-zemlyanika" data-name="Малина и земляника" data-price="350">
+          <article class="card" data-id="malina-zemlyanika" data-name="Малина и земляника" data-price="480">
             <img class="card__image" src="img/malina-zemlyanika.jpg" alt="Эклер с малиной и земляникой">
             <h3 class="card__title">Малина и земляника</h3>
-            <p class="card__text">Ягодный крем с кислинкой и свежая малина сверху.</p>
-            <p class="card__price">350 ₽</p>
-            <button class="button card__button" type="button">В корзину</button>
+            <p class="card__text">Нежный крем из малины и земляники.</p>
+            <p class="card__price">480 ₽</p>
+            <div class="card__details" hidden>
+              <dl class="composition">
+                <dt>Основа</dt><dd>заварное тесто</dd>
+                <dt>Начинка</dt><dd>крем из малины и земляники</dd>
+                <dt>Декор</dt><dd>цветы из белой глазури</dd>
+                <dt>Вес</dt><dd>около 100 г</dd>
+              </dl>
+            </div>
+            <div class="card__actions">
+              <button class="button button--secondary card__more" type="button">Подробнее</button>
+              <button class="button card__add" type="button">В корзину</button>
+            </div>
           </article>
         </li>
 
         <li>
-          <article class="card" data-id="popkorn" data-name="Попкорн" data-price="320">
+          <article class="card" data-id="popkorn" data-name="Попкорн" data-price="450">
             <img class="card__image" src="img/popkorn.jpg" alt="Эклер с карамельным попкорном">
             <h3 class="card__title">Попкорн</h3>
-            <p class="card__text">Карамельный крем и хрустящий попкорн.</p>
-            <p class="card__price">320 ₽</p>
-            <button class="button card__button" type="button">В корзину</button>
+            <p class="card__text">Солёная карамель и хрустящий попкорн.</p>
+            <p class="card__price">450 ₽</p>
+            <div class="card__details" hidden>
+              <dl class="composition">
+                <dt>Основа</dt><dd>заварное тесто</dd>
+                <dt>Начинка</dt><dd>крем на солёной карамели</dd>
+                <dt>Декор</dt><dd>карамелизированный попкорн</dd>
+                <dt>Вес</dt><dd>около 100 г</dd>
+              </dl>
+            </div>
+            <div class="card__actions">
+              <button class="button button--secondary card__more" type="button">Подробнее</button>
+              <button class="button card__add" type="button">В корзину</button>
+            </div>
           </article>
         </li>
 
         <li>
-          <article class="card" data-id="shokolad" data-name="Шоколад" data-price="300">
+          <article class="card" data-id="shokolad" data-name="Шоколад" data-price="450">
             <img class="card__image" src="img/shokolad.jpg" alt="Шоколадный эклер">
             <h3 class="card__title">Шоколад</h3>
-            <p class="card__text">Крем на тёмном шоколаде и шоколадная глазурь.</p>
-            <p class="card__price">300 ₽</p>
-            <button class="button card__button" type="button">В корзину</button>
+            <p class="card__text">Крем на тёмном шоколаде под шоколадной глазурью.</p>
+            <p class="card__price">450 ₽</p>
+            <div class="card__details" hidden>
+              <dl class="composition">
+                <dt>Основа</dt><dd>заварное тесто</dd>
+                <dt>Начинка</dt><dd>крем на тёмном шоколаде</dd>
+                <dt>Декор</dt><dd>шоколадная глазурь</dd>
+                <dt>Вес</dt><dd>около 100 г</dd>
+              </dl>
+            </div>
+            <div class="card__actions">
+              <button class="button button--secondary card__more" type="button">Подробнее</button>
+              <button class="button card__add" type="button">В корзину</button>
+            </div>
           </article>
         </li>
 
         <li>
-          <article class="card" data-id="vanil" data-name="Ваниль" data-price="290">
+          <article class="card" data-id="vanil" data-name="Ваниль" data-price="420">
             <img class="card__image" src="img/vanil.jpg" alt="Ванильный эклер">
             <h3 class="card__title">Ваниль</h3>
-            <p class="card__text">Классический заварной крем с ванилью.</p>
-            <p class="card__price">290 ₽</p>
-            <button class="button card__button" type="button">В корзину</button>
+            <p class="card__text">Классический заварной крем с натуральной ванилью.</p>
+            <p class="card__price">420 ₽</p>
+            <div class="card__details" hidden>
+              <dl class="composition">
+                <dt>Основа</dt><dd>заварное тесто</dd>
+                <dt>Начинка</dt><dd>заварной крем с ванилью</dd>
+                <dt>Декор</dt><dd>белая глазурь</dd>
+                <dt>Вес</dt><dd>около 100 г</dd>
+              </dl>
+            </div>
+            <div class="card__actions">
+              <button class="button button--secondary card__more" type="button">Подробнее</button>
+              <button class="button card__add" type="button">В корзину</button>
+            </div>
           </article>
         </li>
 
         <li>
-          <article class="card" data-id="vspyshka" data-name="Вспышка" data-price="380">
+          <article class="card" data-id="vspyshka" data-name="Вспышка" data-price="470">
             <img class="card__image" src="img/vspyshka.jpg" alt="Эклер «Вспышка»">
             <h3 class="card__title">Вспышка</h3>
-            <p class="card__text">Маракуйя и манго с яркой цитрусовой глазурью.</p>
-            <p class="card__price">380 ₽</p>
-            <button class="button card__button" type="button">В корзину</button>
+            <p class="card__text">Карамельный мусс и крем из маракуйи.</p>
+            <p class="card__price">470 ₽</p>
+            <div class="card__details" hidden>
+              <dl class="composition">
+                <dt>Основа</dt><dd>заварное тесто</dd>
+                <dt>Начинка</dt><dd>карамельный крем-мусс, заварной крем из маракуйи</dd>
+                <dt>Декор</dt><dd>велюр, белый шоколад</dd>
+                <dt>Вес</dt><dd>около 100 г</dd>
+              </dl>
+            </div>
+            <div class="card__actions">
+              <button class="button button--secondary card__more" type="button">Подробнее</button>
+              <button class="button card__add" type="button">В корзину</button>
+            </div>
           </article>
         </li>
 
         <li>
-          <article class="card" data-id="yabloko-melissa" data-name="Яблоко и мелисса" data-price="340">
+          <article class="card" data-id="yabloko-melissa" data-name="Яблоко и мелисса" data-price="550">
             <img class="card__image" src="img/yabloko-melissa.jpg" alt="Эклер с яблоком и мелиссой">
             <h3 class="card__title">Яблоко и мелисса</h3>
-            <p class="card__text">Печёное яблоко и травяной крем с мелиссой.</p>
-            <p class="card__price">340 ₽</p>
-            <button class="button card__button" type="button">В корзину</button>
+            <p class="card__text">Зелёное яблоко с мелиссой и ганаш на белом шоколаде.</p>
+            <p class="card__price">550 ₽</p>
+            <div class="card__details" hidden>
+              <dl class="composition">
+                <dt>Основа</dt><dd>заварное тесто</dd>
+                <dt>Начинка</dt><dd>компоте из зелёного яблока и мелиссы, ганаш на белом шоколаде</dd>
+                <dt>Декор</dt><dd>шоколадные яблочки</dd>
+                <dt>Вес</dt><dd>около 100 г</dd>
+              </dl>
+            </div>
+            <div class="card__actions">
+              <button class="button button--secondary card__more" type="button">Подробнее</button>
+              <button class="button card__add" type="button">В корзину</button>
+            </div>
           </article>
         </li>
 
@@ -124,7 +195,7 @@
               <span>1</span>
               <button type="button" aria-label="Увеличить количество">+</button>
             </div>
-            <p class="cart-item__price">290 ₽</p>
+            <p class="cart-item__price">420 ₽</p>
             <button class="cart-item__remove" type="button" aria-label="Удалить из корзины">×</button>
           </li>
         -->
@@ -141,6 +212,20 @@
     </section>
 
   </main>
+
+  <!-- Модальное окно товара: содержимое подставит JS из карточки -->
+  <dialog class="modal modal--product" id="product-modal">
+    <div class="product">
+      <img class="product__image" alt="">
+      <div class="product__info">
+        <h2 class="product__title"></h2>
+        <p class="product__price"></p>
+        <button class="button product__add" type="button">В корзину</button>
+        <div class="product__details"></div>
+      </div>
+    </div>
+    <button class="modal__close" type="button" aria-label="Закрыть">×</button>
+  </dialog>
 
   <!-- Модальное окно с формой заказа -->
   <dialog class="modal" id="order-modal">
