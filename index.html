@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Заварной — кофе и эклеры</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- Шапка: логотип, навигация, кнопка корзины -->
+  <header class="header">
+    <a class="header__logo" href="#">Заварной</a>
+
+    <nav class="header__nav" aria-label="Основная навигация">
+      <ul class="nav">
+        <li><a class="nav__link" href="#menu">Меню</a></li>
+        <li><a class="nav__link" href="#about">О нас</a></li>
+        <li><a class="nav__link" href="#contacts">Контакты</a></li>
+      </ul>
+    </nav>
+
+    <a class="header__cart" href="#cart">
+      Корзина <span class="header__cart-count">0</span>
+    </a>
+  </header>
+
+  <main>
+
+    <!-- Первый экран -->
+    <section class="hero">
+      <img class="hero__image" src="img/hero.jpg" alt="">
+      <div class="hero__content">
+        <h1 class="hero__title">Эклеры, которые печём каждое утро</h1>
+        <p class="hero__text">Заварное тесто, натуральные начинки и кофе из свежеобжаренного зерна.</p>
+        <a class="button hero__button" href="#menu">Смотреть меню</a>
+      </div>
+    </section>
+
+    <!-- Каталог -->
+    <section class="catalog" id="menu">
+      <h2 class="section-title">Эклеры</h2>
+
+      <ul class="catalog__list">
+
+        <li>
+          <article class="card" data-id="malina-zemlyanika" data-name="Малина и земляника" data-price="350">
+            <img class="card__image" src="img/malina-zemlyanika.jpg" alt="Эклер с малиной и земляникой">
+            <h3 class="card__title">Малина и земляника</h3>
+            <p class="card__text">Ягодный крем с кислинкой и свежая малина сверху.</p>
+            <p class="card__price">350 ₽</p>
+            <button class="button card__button" type="button">В корзину</button>
+          </article>
+        </li>
+
+        <li>
+          <article class="card" data-id="popkorn" data-name="Попкорн" data-price="320">
+            <img class="card__image" src="img/popkorn.jpg" alt="Эклер с карамельным попкорном">
+            <h3 class="card__title">Попкорн</h3>
+            <p class="card__text">Карамельный крем и хрустящий попкорн.</p>
+            <p class="card__price">320 ₽</p>
+            <button class="button card__button" type="button">В корзину</button>
+          </article>
+        </li>
+
+        <li>
+          <article class="card" data-id="shokolad" data-name="Шоколад" data-price="300">
+            <img class="card__image" src="img/shokolad.jpg" alt="Шоколадный эклер">
+            <h3 class="card__title">Шоколад</h3>
+            <p class="card__text">Крем на тёмном шоколаде и шоколадная глазурь.</p>
+            <p class="card__price">300 ₽</p>
+            <button class="button card__button" type="button">В корзину</button>
+          </article>
+        </li>
+
+        <li>
+          <article class="card" data-id="vanil" data-name="Ваниль" data-price="290">
+            <img class="card__image" src="img/vanil.jpg" alt="Ванильный эклер">
+            <h3 class="card__title">Ваниль</h3>
+            <p class="card__text">Классический заварной крем с ванилью.</p>
+            <p class="card__price">290 ₽</p>
+            <button class="button card__button" type="button">В корзину</button>
+          </article>
+        </li>
+
+        <li>
+          <article class="card" data-id="vspyshka" data-name="Вспышка" data-price="380">
+            <img class="card__image" src="img/vspyshka.jpg" alt="Эклер «Вспышка»">
+            <h3 class="card__title">Вспышка</h3>
+            <p class="card__text">Маракуйя и манго с яркой цитрусовой глазурью.</p>
+            <p class="card__price">380 ₽</p>
+            <button class="button card__button" type="button">В корзину</button>
+          </article>
+        </li>
+
+        <li>
+          <article class="card" data-id="yabloko-melissa" data-name="Яблоко и мелисса" data-price="340">
+            <img class="card__image" src="img/yabloko-melissa.jpg" alt="Эклер с яблоком и мелиссой">
+            <h3 class="card__title">Яблоко и мелисса</h3>
+            <p class="card__text">Печёное яблоко и травяной крем с мелиссой.</p>
+            <p class="card__price">340 ₽</p>
+            <button class="button card__button" type="button">В корзину</button>
+          </article>
+        </li>
+
+      </ul>
+    </section>
+
+    <!-- Корзина: товары сюда добавит JavaScript -->
+    <section class="cart" id="cart">
+      <h2 class="section-title">Корзина</h2>
+
+      <p class="cart__empty">Корзина пуста. Выберите эклеры в меню выше.</p>
+
+      <ul class="cart__list">
+        <!--
+          Так будет выглядеть один товар (его создаст JS):
+          <li class="cart-item" data-id="vanil">
+            <img class="cart-item__image" src="img/vanil.jpg" alt="">
+            <h3 class="cart-item__title">Ваниль</h3>
+            <div class="cart-item__quantity">
+              <button type="button" aria-label="Уменьшить количество">−</button>
+              <span>1</span>
+              <button type="button" aria-label="Увеличить количество">+</button>
+            </div>
+            <p class="cart-item__price">290 ₽</p>
+            <button class="cart-item__remove" type="button" aria-label="Удалить из корзины">×</button>
+          </li>
+        -->
+      </ul>
+
+      <p class="cart__total">Итого: <span class="cart__total-sum">0</span> ₽</p>
+      <button class="button cart__checkout" type="button">Оформить заказ</button>
+    </section>
+
+    <!-- О нас -->
+    <section class="about" id="about">
+      <h2 class="section-title">О нас</h2>
+      <p>Маленькая кофейня, где эклеры пекут на месте, а кофе варят из зерна локальных обжарщиков.</p>
+    </section>
+
+  </main>
+
+  <!-- Модальное окно с формой заказа -->
+  <dialog class="modal" id="order-modal">
+    <form class="order-form" id="order-form">
+      <h2 class="order-form__title">Оформление заказа</h2>
+
+      <label class="order-form__field">
+        Имя
+        <input type="text" name="firstName" autocomplete="given-name" required>
+      </label>
+
+      <label class="order-form__field">
+        Фамилия
+        <input type="text" name="lastName" autocomplete="family-name" required>
+      </label>
+
+      <label class="order-form__field">
+        Адрес доставки
+        <input type="text" name="address" autocomplete="street-address" required>
+      </label>
+
+      <label class="order-form__field">
+        Телефон
+        <input type="tel" name="phone" autocomplete="tel" placeholder="+7 900 000-00-00" required>
+      </label>
+
+      <div class="order-form__actions">
+        <button class="button" type="submit">Создать заказ</button>
+        <button class="button button--secondary order-form__close" type="button">Отмена</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Подвал -->
+  <footer class="footer" id="contacts">
+    <address class="footer__address">
+      ул. Примерная, 10<br>
+      <a href="tel:+79000000000">+7 900 000-00-00</a>
+    </address>
+    <p class="footer__hours">Каждый день с 8:00 до 21:00</p>
+    <p class="footer__copy">© 2026 Заварной</p>
+  </footer>
+
+</body>
+</html>
