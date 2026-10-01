@@ -4,6 +4,16 @@ const cart = loadCart();
 
 
 // ========== Элементы страницы ==========
+
+const productModal = document.querySelector('#product-modal');
+const productImage = productModal.querySelector('.product__image');
+const productTitle = productModal.querySelector('.product__title');
+const productPrice = productModal.querySelector('.product__price');
+const productDetails = productModal.querySelector('.product__details');
+const productAddButton = productModal.querySelector('.product__add');
+const productCloseButton = productModal.querySelector('.modal__close');
+let currentCard = null;
+
 const catalogList = document.querySelector('.catalog__list');
 const cartList = document.querySelector('.cart__list');
 const cartEmpty = document.querySelector('.cart__empty');
@@ -108,6 +118,34 @@ function renderCart() {
   saveCart();
 }
 
+// ========== Модальные окна ==========
+
+function openProductModal(card) {
+  const product = getProductFromCard(card);
+
+  productImage.src = product.image;
+  productImage.alt = card.querySelector('.card__image').alt;
+  productTitle.textContent = product.name;
+  productPrice.textContent = formatPrice(product.price);
+  productDetails.innerHTML = card.querySelector('.card__details').innerHTML;
+
+  currentCard = card;
+  productModal.showModal();
+}
+
+// Закрытие по клику на затемнённый фон вокруг окна
+function closeOnBackdropClick(dialog) {
+  dialog.addEventListener('click', (event) => {
+    if (event.target !== dialog) return;
+
+    const rect = dialog.getBoundingClientRect();
+    const isInside =
+      event.clientX >= rect.left && event.clientX <= rect.right &&
+      event.clientY >= rect.top && event.clientY <= rect.bottom;
+
+    if (!isInside) dialog.close();
+  });
+}
 
 // ========== Обработчики событий ==========
 
@@ -128,13 +166,23 @@ cartList.addEventListener('click', (event) => {
 
 // Один обработчик на весь каталог вместо отдельного на каждую кнопку
 catalogList.addEventListener('click', (event) => {
-  const addButton = event.target.closest('.card__add');
-  if (!addButton) return;
+  const card = event.target.closest('.card');
+  if (!card) return;
 
-  const card = addButton.closest('.card');
-  addToCart(getProductFromCard(card));
+  if (event.target.closest('.card__add')) {
+    addToCart(getProductFromCard(card));
+  } else if (event.target.closest('.card__more')) {
+    openProductModal(card);
+  }
 });
 
+productAddButton.addEventListener('click', () => {
+  addToCart(getProductFromCard(currentCard));
+  productModal.close();
+});
+
+productCloseButton.addEventListener('click', () => productModal.close());
+closeOnBackdropClick(productModal);
 
 // ========== Старт ==========
 renderCart();
